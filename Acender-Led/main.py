@@ -1,4 +1,4 @@
-import RPI.GPIO as GPIO
+import RPi.GPIO as GPIO
 import time
 
 GPIO.setmode(GPIO.BCM)
@@ -13,8 +13,10 @@ try:
     while True:
         print("Led Aceso")
         GPIO.output(Led, True)
-        time.sleep(1)
+        time.sleep(2.5)
         print("Apagado")
         GPIO.output(Led, False)
-
-except KeyboardInterrupt: print("Desligando....")
+        time.sleep(2.5)
+except KeyboardInterrupt:
+	print("Desligando....")
+	GPIO.cleanup()
